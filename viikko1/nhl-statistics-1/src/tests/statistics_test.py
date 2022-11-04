@@ -31,6 +31,15 @@ class TestStatistics(unittest.TestCase):
         players = self.statistics.team("PIT")
         self.assertEqual(len(players), 1)
     
-    def test_top(self):
-        players = self.statistics.top(1)
-        self.assertEqual(len(players), 2)
+    def test_top_points(self):
+        player = self.statistics.top(1)[0].name
+        self.assertEqual(player, "Gretzky")
+    
+    def test_top_goals(self):
+        player = self.statistics.top(2, 2)[1].name
+        self.assertEqual(player, "Yzerman")
+    
+    def test_top_assists(self):
+        player = self.statistics.top(4, 3)[3].name
+        self.assertEqual(player, "Kurri")
+    
