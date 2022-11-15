@@ -22,10 +22,9 @@ def main():
             players.append(player)
         else:
             continue
-
+    
     print("Oliot:")
-
-    for player in players:
+    for player in sorted(players, key=lambda x: x.goals + x.assists, reverse=True):
         print(player)
 
 if __name__ == "__main__":
