@@ -33,6 +33,32 @@ Register With Nonmatching Password And Password Confirmation
     Submit Credentials
     Register Should Fail With Message  Passwords doesn't match with each other
 
+Login After Successful Registration
+    Set Username  ankka
+    Set Password  ankka123
+    Set Password Confirmation  ankka123
+    Submit Credentials
+    Register Should Succeed
+    Go To Login Page
+    Login Page Should Be Open
+    Set Username  ankka
+    Set Password  ankka123
+    Submit Login Credentials
+    Login Should Succeed
+
+Login After Failed Registration
+    Set Username  kana
+    Set Password  kanat123
+    Set Password Confirmation  ankka123
+    Submit Credentials
+    Register Should Fail With Message  Passwords doesn't match with each other
+    Go To Login Page
+    Login Page Should Be Open
+    Set Username  kana
+    Set Password  ankka123
+    Submit Login Credentials
+    Login Should Fail With Message  Invalid username or password
+
 *** Keywords ***
 Register Should Succeed
     Welcome Page Should Be Open
@@ -52,6 +78,9 @@ Set Password Confirmation
 Submit Credentials
     Click Button  Register
 
+Submit Login Credentials
+    Click Button  Login
+
 Register Should Fail With Message
     [Arguments]  ${message}
     Register Page Should Be Open
@@ -61,3 +90,11 @@ Create User And Go To Register Page
     Create User  kissa  kissa123
     Go To Register Page
     Register Page Should Be Open
+
+Login Should Succeed
+    Main Page Should Be Open
+
+Login Should Fail With Message
+    [Arguments]  ${message}
+    Login Page Should Be Open
+    Page Should Contain  ${message}
