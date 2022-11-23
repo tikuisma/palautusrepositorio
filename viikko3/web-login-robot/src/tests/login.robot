@@ -1,6 +1,5 @@
 *** Settings ***
 Resource  resource.robot
-Resource  login_resource.robot
 Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
 Test Setup  Create User And Go To Register Page
