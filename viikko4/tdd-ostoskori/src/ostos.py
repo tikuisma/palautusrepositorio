@@ -1,5 +1,5 @@
 from tuote import Tuote
-
+# tehtava 7:n kolmas muutos
 class Ostos:
     def __init__(self, tuote: Tuote):
         self.tuote = tuote
