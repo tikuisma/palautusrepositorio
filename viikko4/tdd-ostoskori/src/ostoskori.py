@@ -5,7 +5,7 @@ class Ostoskori:
     def __init__(self):
         # ostoskori tallettaa Ostos-oliota, yhden per korissa oleva Tuote
         self.tuotteet = []
-
+# tehtava 7:n toinen muutos
     def tavaroita_korissa(self):
         return len(self.tuotteet)
         # kertoo korissa olevien tavaroiden lukumäärän
