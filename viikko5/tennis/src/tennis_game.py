@@ -6,16 +6,13 @@ class TennisGame:
         self.player1_score = 0
         self.player2_score = 0
 
-    def won_point(self, player_name):
+    def won_point(self, player):
         if self.player1_name:
             self.player1_score += 1
         else:
             self.player2_score += 1
 
     def get_score(self):
-        score = ""
-        temp_score = 0
-
         if self.player1_score == self.player2_score:
             return self.tie_points()
         elif self.player1_score >= 4 or self.player2_score >= 4:
@@ -23,12 +20,12 @@ class TennisGame:
         else:
             return self.final_points()
 
-        return score
 
     def tie_points(self):
         score = ""
+
         if self.player1_score == 0:
-                score = "Love-All"
+            score = "Love-All"
         elif self.player1_score == 1:
             score = "Fifteen-All"
         elif self.player1_score == 2:
